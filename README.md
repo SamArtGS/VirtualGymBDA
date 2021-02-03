@@ -76,8 +76,8 @@ Blablabla
 | cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
 | cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 | credencial_cliente | credencial_cliente_codigo_barras_uk | unique | Asegurar que no se repitan códigos de barras y generar consultas eficientes |
-| cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
-| sensor| sensor_num_uk | unique | Validar que no se repitan las curps de los usuarios |
+| sensor| sensor_num_serie_uk | unique | Asegurar la integridad de los números de serie de los sensores |
+| pue | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 
 ### Choro consciente
 
@@ -97,5 +97,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDEzMzI2MDVdfQ==
+eyJoaXN0b3J5IjpbLTc3Mzg5NDM4Nl19
 -->
