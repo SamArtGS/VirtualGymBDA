@@ -84,7 +84,8 @@ Blablabla
 | empleado | empleado_email_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | administrativo | administrativo_login_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
-| sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| disciplina | disciplina_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| status_dispositivo | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
 
 ### Choro consciente
 
@@ -104,5 +105,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTAyODcxNDU1XX0=
+eyJoaXN0b3J5IjpbLTE1MTMzNjUxNjBdfQ==
 -->
