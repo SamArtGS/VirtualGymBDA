@@ -84,7 +84,7 @@ Blablabla
 | administrativo | administrativo_login_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | disciplina | disciplina_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
-| status_dispositivo | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| status_dispositivo_clave_uk | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
 
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
@@ -130,19 +130,19 @@ Blablabla
 ### Asignación de tablespaces para índices
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
 |--|--|--|--|--|
-| cliente_username_uk | unique | cliente | username |
-| cliente_curp_uk | unique | cliente | curp |
-| credencial_cliente_codigo_barras_uk | unique | credencial_cliente | codigo_barras |
-| sensor_num_serie_uk | unique | sensor | num_serie |
-| puesto_clave_uk | unique | puesto | clave |
-| gimnasio_folio_uk | unique | gimnasio | folio |
-| empleado_curp_uk | unique | empleado | curp |
-| empleado_rfc_uk | unique | empleado | rfc |
-| empleado_email_uk | unique | empleado | email |
-| administrativo_login_uk | unique | administrativo | login |
-| sala_clave_uk | unique | sala | clave |
-| disciplina_clave_uk | unique | disciplina | clave |
-| status_dispositivo_clave_uk | unique | status_dispositivo | clave |
+| cliente_username_uk | unique | cliente | username | tbs_index |
+| cliente_curp_uk | unique | cliente | curp | tbs_index |
+| credencial_cliente_codigo_barras_uk | unique | credencial_cliente |codigo_barras | tbs_index |
+| sensor_num_serie_uk | unique | sensor | num_serie | tbs_index |
+| puesto_clave_uk | unique | puesto | clave | tbs_index |
+| gimnasio_folio_uk | unique | gimnasio | folio | tbs_index |
+| empleado_curp_uk | unique | empleado | curp | tbs_index |
+| empleado_rfc_uk | unique | empleado | rfc | tbs_index |
+| empleado_email_uk | unique | empleado | email | tbs_index |
+| administrativo_login_uk | unique | administrativo | login | tbs_index |
+| sala_clave_uk | unique | sala | clave | tbs_index |
+| disciplina_clave_uk | unique | disciplina | clave | tbs_index |
+| status_dispositivo_clave_uk | unique | status_dispositivo | clave | tbs_index |
 
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
@@ -150,19 +150,19 @@ Blablabla
 | imagen_barras | credecial_cliente_imagen_barras_bix | credencial_cliente | tbs_blob | |
 | foto | cliente_foto_bix | cliente | tbs_cliente | |
 | foto | empleado_foto_bix | empleado | tbs_cliente | |
-| certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_cliente | |
-| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
-| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_cliente | |
-| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_cliente | |
-| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_cliente | |
-| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_cliente | |
-| pulgar_izquierdo | huella_digital_pulgar_izquierdo_bix | huella_digital | tbs_cliente | |
-| indice_izquierdo | huella_digital_indice_izquierdo_bix | huella_digital | tbs_cliente | |
-| medio_izquierdo | huella_digital_medio_izquierdo_bix | huella_digital | tbs_cliente | |
-| anular_izquierdo | huella_digital_anular_izquierdo_bix | huella_digital | tbs_cliente | |
-| menique_izquierdo | huella_digital_menique_izquierdo_bix | huella_digital | tbs_cliente | |
+| certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_blob | |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_blob | |
+| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_blob | |
+| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_blob | |
+| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_blob | |
+| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_blob | |
+| pulgar_izquierdo | huella_digital_pulgar_izquierdo_bix | huella_digital | tbs_blob | |
+| indice_izquierdo | huella_digital_indice_izquierdo_bix | huella_digital | tbs_blob | |
+| medio_izquierdo | huella_digital_medio_izquierdo_bix | huella_digital | tbs_blob | |
+| anular_izquierdo | huella_digital_anular_izquierdo_bix | huella_digital | tbs_blob | |
+| menique_izquierdo | huella_digital_menique_izquierdo_bix | huella_digital | tbs_blob | |
 | archivo | multimedia_archivo_bix | multimedia | tbs_blob | |
-| icono | disciplina_icono_bix | disciplina | tbs_cliente | |
+| icono | disciplina_icono_bix | disciplina | tbs_blob | |
 
 ### Choro consciente
 
@@ -182,5 +182,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MzA4NDAzMF19
+eyJoaXN0b3J5IjpbLTEzNzQ4MjQ1ODNdfQ==
 -->
