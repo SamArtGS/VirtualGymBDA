@@ -88,10 +88,10 @@ Blablabla
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
 |--|--|
-| tbs_cliente | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. AutoAllocate Extents,  |
-
-|
-
+| tbs_cliente | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| tbs_infraestructura | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| tbs_empleado | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| tbs_blob | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
 
 ### Choro consciente
 
@@ -111,5 +111,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjExODYxMzAwOF19
+eyJoaXN0b3J5IjpbODAzMjkwNTYxXX0=
 -->
