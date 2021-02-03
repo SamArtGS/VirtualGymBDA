@@ -88,7 +88,10 @@ Blablabla
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
 |--|--|
-| tbs_cliente |   |
+| tbs_cliente | ```
+sd
+``` 
+|
 
 
 ### Choro consciente
@@ -109,5 +112,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1OTI1NTEwM119
+eyJoaXN0b3J5IjpbLTg4NTMyMDI4NF19
 -->
