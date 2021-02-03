@@ -131,6 +131,12 @@ Blablabla
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
 |--|--|--|--|--|
 | cliente_username_uk |  |
+| cliente_curp_uk |  |
+| credencial_cliente_codigo_barras_uk |  |
+| sensor_num_serie_uk |  |
+| puesto_clave_uk |  |
+| gimnasio_folio_uk |  |
+| empleado_curp_uk |  |
 |  |  |
 |  |  |
 |  |  |
@@ -140,10 +146,6 @@ Blablabla
 |  |  |
 |  |  |
 |  |  |
-|  |  |
-|  |  |
-
-
 
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
@@ -183,5 +185,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2NjQxMTg0NV19
+eyJoaXN0b3J5IjpbLTE5NjU2NDE2MjBdfQ==
 -->
