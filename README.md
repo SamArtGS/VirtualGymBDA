@@ -71,6 +71,9 @@ Blablabla
 </center>
 
 ### Esquema de Indexado
+| Nombre de la tabla | Nombre del indice | Tipo | Proposito |
+|--|--|--|--|
+| cliente | cliente_cliente_uk |
 
 ### Choro consciente
 
@@ -90,5 +93,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDIwNDMwNTRdfQ==
+eyJoaXN0b3J5IjpbOTg2NTI2ODg4XX0=
 -->
