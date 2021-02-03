@@ -147,22 +147,22 @@ Blablabla
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
 |--|--|--|--|--|
-| imagen_barras | credecial_cliente_imagen_barras_bix | credencial_cliente | tbs_blob | |
-| foto | cliente_foto_bix | cliente | tbs_cliente | |
-| foto | empleado_foto_bix | empleado | tbs_cliente | |
-| certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_blob | |
-| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_blob | |
-| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_blob | |
-| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_blob | |
-| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_blob | |
-| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_blob | |
-| pulgar_izquierdo | huella_digital_pulgar_izquierdo_bix | huella_digital | tbs_blob | |
-| indice_izquierdo | huella_digital_indice_izquierdo_bix | huella_digital | tbs_blob | |
-| medio_izquierdo | huella_digital_medio_izquierdo_bix | huella_digital | tbs_blob | |
-| anular_izquierdo | huella_digital_anular_izquierdo_bix | huella_digital | tbs_blob | |
-| menique_izquierdo | huella_digital_menique_izquierdo_bix | huella_digital | tbs_blob | |
-| archivo | multimedia_archivo_bix | multimedia | tbs_blob | |
-| icono | disciplina_icono_bix | disciplina | tbs_blob | |
+| imagen_barras | credecial_cliente_imagen_barras_bix | credencial_cliente | tbs_blob | tbs_blob_index |
+| foto | cliente_foto_bix | cliente | tbs_blob | tbs_blob_index |
+| foto | empleado_foto_bix | empleado | tbs_blob | tbs_blob_index |
+| certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_blob | tbs_blob_index |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_blob | tbs_blob_index |
+| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_blob | tbs_blob_index |
+| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_blob | tbs_blob_index |
+| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_blob | tbs_blob_index |
+| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_blob | tbs_blob_index |
+| pulgar_izquierdo | huella_digital_pulgar_izquierdo_bix | huella_digital | tbs_blob | tbs_blob_index |
+| indice_izquierdo | huella_digital_indice_izquierdo_bix | huella_digital | tbs_blob | tbs_blob_index |
+| medio_izquierdo | huella_digital_medio_izquierdo_bix | huella_digital | tbs_blob | tbs_blob_index |
+| anular_izquierdo | huella_digital_anular_izquierdo_bix | huella_digital | tbs_blob | tbs_blob_index |
+| menique_izquierdo | huella_digital_menique_izquierdo_bix | huella_digital | tbs_blob | tbs_blob_index |
+| archivo | multimedia_archivo_bix | multimedia | tbs_blob | tbs_blob_index |
+| icono | disciplina_icono_bix | disciplina | tbs_blob | tbs_blob_index |
 
 ### Choro consciente
 
@@ -182,5 +182,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNzQ4MjQ1ODNdfQ==
+eyJoaXN0b3J5IjpbLTE4NDkyNTQ3NTldfQ==
 -->
