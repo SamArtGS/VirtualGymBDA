@@ -41,7 +41,7 @@ Blablabla
 | EMPLEADO| Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado |
 
 ### Diseño lógico de la Base de Datos 
-
+<center>
 | Nombre de la tabla | Nombre del módulo  |
 |--|--|
 | CLIENTE | CLIENTE |
@@ -67,8 +67,7 @@ Blablabla
 | ADMINISTRADOR | EMPLEADO |
 | INSTRUCTOR | EMPLEADO |
 | URLS | EMPLEADO |
-
-
+</center>
 
 ### Choro consciente
 
@@ -88,5 +87,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM4MDU2ODQwXX0=
+eyJoaXN0b3J5IjpbMTk0NTY0MjgwNV19
 -->
