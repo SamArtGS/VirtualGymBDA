@@ -117,7 +117,7 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 ### Tablespaces por módulo
 | Nombre del módulo | Objetivo/Beneficio | Tipo |
 |--|--|--|
-| ? | ? | ? |
+| ? | ? |  |
 
 ### Asignación de tablespaces para tablas
 
@@ -202,5 +202,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODI5OTA0NzA4XX0=
+eyJoaXN0b3J5IjpbODQyODUxNjE5LDgyOTkwNDcwOF19
 -->
