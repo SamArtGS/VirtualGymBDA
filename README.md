@@ -36,7 +36,8 @@ Blablabla
 
 | Nombre del módulo | Descripción | Usuario |
 |--|--|--|
-| Cliente | Agrupa todos los objetos asocie | user_cliente |
+| Cliente | Agrupa toda la información en forma de objetos de los cliente. | user_cliente |
+| Infraestructura | Corresponde a todos los objetos relacionados con la infraestructura del gima |
 
 
 ### Choro consciente
@@ -57,5 +58,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIyOTAzMzY5MV19
+eyJoaXN0b3J5IjpbMTU1Nzc2NzgwXX0=
 -->
