@@ -130,7 +130,19 @@ Blablabla
 ### Asignación de tablespaces para índices
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
 |--|--|--|--|--|
+| cliente_username_uk |  |
 |  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+|  |  |
+
 
 
 ### Asignación de tablespaces para columnas clob/blob
@@ -141,17 +153,15 @@ Blablabla
 | foto | empleado_foto_bix | empleado | tbs_cliente | |
 | certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_cliente | |
 | pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
-| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
 | indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_cliente | |
 | medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_cliente | |
 | anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_cliente | |
 | menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_cliente | |
-| pulgar_izquierdo | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
-| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
-| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_cliente | |
-| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_cliente | |
-| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_cliente | |
-| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_cliente | |
+| pulgar_izquierdo | huella_digital_pulgar_izquierdo_bix | huella_digital | tbs_cliente | |
+| indice_izquierdo | huella_digital_indice_izquierdo_bix | huella_digital | tbs_cliente | |
+| medio_izquierdo | huella_digital_medio_izquierdo_bix | huella_digital | tbs_cliente | |
+| anular_izquierdo | huella_digital_anular_izquierdo_bix | huella_digital | tbs_cliente | |
+| menique_izquierdo | huella_digital_menique_izquierdo_bix | huella_digital | tbs_cliente | |
 | archivo | multimedia_archivo_bix | multimedia | tbs_blob | |
 | icono | disciplina_icono_bix | disciplina | tbs_cliente | |
 
@@ -173,5 +183,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA4NDg3NTE3XX0=
+eyJoaXN0b3J5IjpbMTk2NjQxMTg0NV19
 -->
