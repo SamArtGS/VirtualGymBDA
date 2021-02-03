@@ -134,9 +134,10 @@ Blablabla
 
 
 ### Asignación de tablespaces para columnas clob/blob
-| Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el indice de la com |
+| Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
 |--|--|--|--|--|
-|  |  |
+| imagen_barras | imagen_barras_bix | credencial_cliente | tbs_blob |
+| 
 
 ### Choro consciente
 
@@ -156,5 +157,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc0MzAxMjcxNV19
+eyJoaXN0b3J5IjpbLTI1NDY1Nzc0N119
 -->
