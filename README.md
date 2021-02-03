@@ -139,9 +139,10 @@ Blablabla
 | imagen_barras | credecial_cliente_imagen_barras_bix | credencial_cliente | tbs_blob | |
 | foto | cliente_foto_bix | cliente | tbs_cliente | |
 | foto | empleado_foto_bix | empleado | tbs_cliente | |
-| certificado_digital | cliente_certificado_digital_bix | cliente | tbs_cliente | |
+| certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_cliente | |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | cliente | tbs_cliente | |
 | archivo | multimedia_archivo_bix | multimedia | tbs_blob | |
-
+| icono | disciplina_icono_bix | disciplina | tbs_cliente | |
 
 ### Choro consciente
 
@@ -161,5 +162,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjQwMDc1ODgyXX0=
+eyJoaXN0b3J5IjpbMTk1NTE1OTEwMl19
 -->
