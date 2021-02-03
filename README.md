@@ -88,9 +88,7 @@ Blablabla
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
 |--|--|
-| tbs_cliente | ```
-sd
-``` 
+| tbs_cliente | 
 |
 
 
@@ -112,5 +110,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4NTMyMDI4NF19
+eyJoaXN0b3J5IjpbMTYwMzczNjc4NV19
 -->
