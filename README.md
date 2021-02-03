@@ -82,8 +82,8 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | puesto_id | empleado |
 | huella_digital | empleado |
 | administrador | empleado |
-| instructor | templeado |
-| urls | tbs_empleado |
+| instructor | empleado |
+| urls | empleado |
 
 </center>
 
@@ -110,7 +110,9 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | tbs_cliente | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
 | tbs_infraestructura | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
 | tbs_empleado | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| tbs_index | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
 | tbs_blob | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| tbs_blob_index | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
 
 ### Tablespaces por módulo
 | Nombre del módulo | Objetivo/Beneficio | Tipo |
@@ -200,5 +202,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3ODU4MzMyMjRdfQ==
+eyJoaXN0b3J5IjpbODI5OTA0NzA4XX0=
 -->
