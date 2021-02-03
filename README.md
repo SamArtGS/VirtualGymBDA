@@ -130,22 +130,19 @@ Blablabla
 ### Asignación de tablespaces para índices
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
 |--|--|--|--|--|
-| cliente_username_uk |  |
-| cliente_curp_uk |  |
-| credencial_cliente_codigo_barras_uk |  |
-| sensor_num_serie_uk |  |
-| puesto_clave_uk |  |
-| gimnasio_folio_uk |  |
-| empleado_curp_uk |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| cliente_username_uk | unique |
+| cliente_curp_uk | unique |
+| credencial_cliente_codigo_barras_uk | unique |
+| sensor_num_serie_uk | unique |
+| puesto_clave_uk | unique |
+| gimnasio_folio_uk | unique |
+| empleado_curp_uk | unique |
+| empleado_rfc_uk |  |
+| empleado_email_uk |  |
+| administrativo_login_uk |  |
+| sala_clave_uk |  |
+| disciplina_clave_uk |  |
+| status_dispositivo_uk |  |
 
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
@@ -185,5 +182,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NjU2NDE2MjBdfQ==
+eyJoaXN0b3J5IjpbNzc4MDQyNzQ3XX0=
 -->
