@@ -140,7 +140,18 @@ Blablabla
 | foto | cliente_foto_bix | cliente | tbs_cliente | |
 | foto | empleado_foto_bix | empleado | tbs_cliente | |
 | certificado_digital | cliente_certificado_digital_bix | administrativo | tbs_cliente | |
-| pulgar_derecho | huella_digital_pulgar_derecho_bix | cliente | tbs_cliente | |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
+| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_cliente | |
+| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_cliente | |
+| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_cliente | |
+| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_cliente | |
+| pulgar_izquierdo | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
+| pulgar_derecho | huella_digital_pulgar_derecho_bix | huella_digital | tbs_cliente | |
+| indice_derecho | huella_digital_indice_derecho_bix | huella_digital | tbs_cliente | |
+| medio_derecho | huella_digital_medio_derecho_bix | huella_digital | tbs_cliente | |
+| anular_derecho | huella_digital_anular_derecho_bix | huella_digital | tbs_cliente | |
+| menique_derecho | huella_digital_menique_derecho_bix | huella_digital | tbs_cliente | |
 | archivo | multimedia_archivo_bix | multimedia | tbs_blob | |
 | icono | disciplina_icono_bix | disciplina | tbs_cliente | |
 
@@ -162,5 +173,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1NTE1OTEwMl19
+eyJoaXN0b3J5IjpbMzA4NDg3NTE3XX0=
 -->
