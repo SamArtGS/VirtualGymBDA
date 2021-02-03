@@ -38,7 +38,7 @@ Blablabla
 |--|--|--|
 | Cliente | Agrupa toda la información en forma de objetos de los clientes. | user_cliente |
 | Infraestructura | Corresponde a todos los objetos relacionados con la infraestructura del gimnasio, como las salas, disciplinas impartidas y dispositivos para hacer ejercicios | user_infraestructura |
-| Empleados | 
+| Empleados | Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado | 
 
 
 ### Choro consciente
@@ -59,5 +59,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2Nzc0NTczN119
+eyJoaXN0b3J5IjpbMjAxNjM1MzExOV19
 -->
