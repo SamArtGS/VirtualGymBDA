@@ -32,6 +32,12 @@ Blablabla
 |:-----------:|:-----------------:|:-----------:|
 |Número y ubicación de archivos de control|  |
 
+### Módulos del sistema
+
+| Nombre |  |
+|--|--|
+|  |  |
+
 
 ### Choro consciente
 
@@ -50,3 +56,6 @@ Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que fina
 Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, con 
 
 En el caso de 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIzMzc1NTA4Ml19
+-->
