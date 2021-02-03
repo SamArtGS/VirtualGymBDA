@@ -52,38 +52,38 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 | Nombre del módulo | Descripción | Usuario |
 |--|--|--|
-| CLIENTE | Agrupa toda la información en forma de objetos de los clientes. | user_cliente |
-| INFRAESTRUCTURA | Corresponde a todos los objetos relacionados con la infraestructura del gimnasio, como las salas, disciplinas impartidas y dispositivos para hacer ejercicios | user_infraestructura |
-| EMPLEADO| Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado |
+| cliente | Agrupa toda la información en forma de objetos de los clientes. | user_cliente |
+| infraestructura | Corresponde a todos los objetos relacionados con la infraestructura del gimnasio, como las salas, disciplinas impartidas y dispositivos para hacer ejercicios | user_infraestructura |
+| empleado | Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado |
 
 ### Diseño lógico de la Base de Datos 
 <center>
 
 | Nombre de la tabla | Nombre del módulo  |
 |--|--|
-| CLIENTE | CLIENTE |
-| CREDENCIAL_CLIENTE | CLIENTE |
-| REPORTE_FISICO | CLIENTE | 
-| SENSOR | CLIENTE |
-| SESION | CLIENTE|
-| BITACORA | CLIENTE |
-| GIMNASIO | INFRAESTRUCTURA |
-| MULTIMEDIA | INFRAESTRUCTURA |
-| SALA | INFRAESTRUCTURA |
-| DISCIPLINA | INFRAESTRUCTURA |
-| SALA_DISCIPLINA | INFRAESTRUCTURA |
-| DISPOSITIVO | INFRAESTRUCTURA |
-| TIPO_DISPOSITIVO | INFRAESTRUCTURA |
-| STATUS_DISPOSITIVO | INFRAESTRUCTURA |
-| HISTORICO_STATUS_DISPOSTIVO | INFRAESTRUCTURA |
-| APARATO_SESION | INFRAESTRUCTURA |
-| CLIENTE_GIMNASIO | INFRAESTRUCTURA |
-| EMPLEADO | EMPLEADO |
-| PUESTO_ID | EMPLEADO |
-| HUELLA_DIGITAL | EMPLEADO |
-| ADMINISTRADOR | EMPLEADO |
-| INSTRUCTOR | EMPLEADO |
-| URLS | EMPLEADO |
+| cliente | cliente |
+| credencial_cliente| cliente |
+| reporte_fisico | cliente | 
+| sensor | cliente |
+| sesion | cliente |
+| bitacora | cliente |
+| gimnasio | infraestructura |
+| multimedia | infraestructura |
+| sala | infraestructura |
+| disciplina | infraestructura |
+| sala_disciplina | infraestructura |
+| dispositivo | infraestructura |
+| tipo_dispositivo | infraestructura |
+| status_dispositivo | infraestructura |
+| historico_status_dispositivo | infraestructura |
+| aparato_sesion| infraestructura |
+| cliente_gimnasio | infraestructura |
+| empleado | empleado |
+| puesto_id | empleado |
+| huella_digital | empleado |
+| administrador | empleado |
+| instructor | templeado |
+| urls | tbs_empleado |
 
 </center>
 
@@ -119,7 +119,7 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 ### Asignación de tablespaces para tablas
 
-| Nombre de la tabla | Nombre del módulo  |
+| Nombre de la tabla | Nombre del tablespace |
 |--|--|
 | cliente | tbs_cliente |
 | credencial_cliente| tbs_cliente |
@@ -200,5 +200,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzA3NDkxNjk3XX0=
+eyJoaXN0b3J5IjpbLTE3ODU4MzMyMjRdfQ==
 -->
