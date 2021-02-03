@@ -130,19 +130,19 @@ Blablabla
 ### Asignación de tablespaces para índices
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
 |--|--|--|--|--|
-| cliente_username_uk | unique | cliente |
-| cliente_curp_uk | unique | cliente |
-| credencial_cliente_codigo_barras_uk | unique | credencial_cliente |
-| sensor_num_serie_uk | unique | sensor | 
-| puesto_clave_uk | unique | puesto |
-| gimnasio_folio_uk | unique | gimnasio |
-| empleado_curp_uk | unique | empleado |
-| empleado_rfc_uk | unique | empleado |
-| empleado_email_uk | unique | empleado |
-| administrativo_login_uk | unique | administrativo |
-| sala_clave_uk | unique | sala |
-| disciplina_clave_uk | unique | disciplina |
-| status_dispositivo_uk | unique | status_dispositivo |
+| cliente_username_uk | unique | cliente | username |
+| cliente_curp_uk | unique | cliente | curp |
+| credencial_cliente_codigo_barras_uk | unique | credencial_cliente | codigo_barras |
+| sensor_num_serie_uk | unique | sensor | num_serie |
+| puesto_clave_uk | unique | puesto | clave |
+| gimnasio_folio_uk | unique | gimnasio | folio |
+| empleado_curp_uk | unique | empleado | curp |
+| empleado_rfc_uk | unique | empleado | rfc |
+| empleado_email_uk | unique | empleado | email |
+| administrativo_login_uk | unique | administrativo | login |
+| sala_clave_uk | unique | sala | clave |
+| disciplina_clave_uk | unique | disciplina | clave |
+| status_dispositivo_clave_uk | unique | status_dispositivo | clave |
 
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
@@ -182,5 +182,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU4NTg1MTMzN119
+eyJoaXN0b3J5IjpbLTc5MzA4NDAzMF19
 -->
