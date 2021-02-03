@@ -50,6 +50,14 @@ Blablabla
 | SENSOR | CLIENTE |
 | SESION | CLIENTE|
 | BITACORA | CLIENTE |
+| GIMNASIO | INFRAESTRUCTURA |
+| MULTIMEDIA | INFRAESTRUCTURA |
+| SALA | INFRAESTRUCTURA |
+| DISCIPLINA | INFRAESTRUCTURA |
+| SALA_DISCIPLINA | INFRAESTRUCTURA |
+| DISPOSITIVO | INFRAESTRUCTURA |
+| TIPO_DISPOSITIVO | INFRAESTRUCTURA |
+
 
 
 
@@ -71,5 +79,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzgyNTUyMzI3XX0=
+eyJoaXN0b3J5IjpbLTE5MjI5NjY2NzldfQ==
 -->
