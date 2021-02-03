@@ -73,7 +73,8 @@ Blablabla
 ### Esquema de Indexado
 | Nombre de la tabla | Nombre del indice | Tipo | Propósito |
 |--|--|--|--|
-| cliente | cliente_username_uk | unique | Permitit |
+| cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
+| cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarioslas búsquedas |
 
 ### Choro consciente
 
@@ -93,5 +94,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgzMzg2MV19
+eyJoaXN0b3J5IjpbMjAwOTgxMTE2Nl19
 -->
