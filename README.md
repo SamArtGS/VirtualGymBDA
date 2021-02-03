@@ -96,7 +96,9 @@ Blablabla
 ### Tablespaces por módulo
 | Nombre del módulo | Objetivo/Beneficio | Tipo |
 |--|--|--|
-| empleado |  |
+| ? | ? | ? |
+
+### Asignación de tablespaces para cada table
 
 
 ### Choro consciente
@@ -117,5 +119,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1NjE2MDMxNl19
+eyJoaXN0b3J5IjpbMTQ4MTU1ODA2OF19
 -->
