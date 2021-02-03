@@ -99,7 +99,7 @@ Blablabla
 |--|--|--|
 | ? | ? | ? |
 
-### Asignación de tablespaces para cada tabla
+### Asignación de tablespaces para tablas
 
 | Nombre de la tabla | Nombre del módulo  |
 |--|--|
@@ -116,16 +116,16 @@ Blablabla
 | sala_disciplina | tbs_infraestructura |
 | dispositivo | tbs_infraestructura |
 | tipo_dispositivo | tbs_infraestructura |
-| s | tbs_infraestructura |
-| HISTORICO_STATUS_DISPOSTIVO | tbs_infraestructura |
-| APARATO_SESION | tbs_infraestructura |
-| CLIENTE_GIMNASIO | tbs_infraestructura |
-| EMPLEADO | tbs_empleado |
-| PUESTO_ID | tbs_empleado |
-| HUELLA_DIGITAL | tbs_empleado |
-| ADMINISTRADOR | tbs_empleado |
-| INSTRUCTOR | tbs_empleado |
-| URLS | tbs_empleado |
+| status_dispositivo | tbs_infraestructura |
+| historico_status_dispositivo | tbs_infraestructura |
+| aparato_sesion| tbs_infraestructura |
+| cliente_gimnasio | tbs_infraestructura |
+| empleado | tbs_empleado |
+| puesto_id | tbs_empleado |
+| huella_digital | tbs_empleado |
+| administrador | tbs_empleado |
+| instructor | tbs_empleado |
+| urls | tbs_empleado |
 
 ### Choro consciente
 
@@ -145,5 +145,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgyNzc3Njk4M119
+eyJoaXN0b3J5IjpbMTg2Mjk4OTQ1N119
 -->
