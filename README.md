@@ -36,7 +36,7 @@ Blablabla
 
 | Nombre del módulo | Descripción | Usuario |
 |--|--|--|
-| Cliente |  | user_cliente |
+| Cliente | Agrupa todos los objetos asocie | user_cliente |
 
 
 ### Choro consciente
@@ -57,5 +57,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5MzAyNTM4MF19
+eyJoaXN0b3J5IjpbLTIyOTAzMzY5MV19
 -->
