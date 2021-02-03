@@ -45,6 +45,11 @@ Blablabla
 | Nombre de la tabla | Nombre del módulo  |
 |--|--|
 | CLIENTE | CLIENTE |
+| CREDENCIAL_CLIENTE | CLIENTE |
+| REPORTE_FISICO | CLIENTE | 
+| SENSOR | CLIENTE |
+| SESION | CLIENTE|
+| BITACORA | CLIENTE |
 
 
 
@@ -66,5 +71,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDczMDkzMzNdfQ==
+eyJoaXN0b3J5IjpbNzgyNTUyMzI3XX0=
 -->
