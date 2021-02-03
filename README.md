@@ -88,7 +88,7 @@ Blablabla
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
 |--|--|
-| tbs_cliente |``DATAFILE '/disco/disco01/cliente/datafile.dbf' SIZE 1024M AUTOEXTEND ON NEXT 102400K MAXSIZE 2097152K`` |
+| tbs_cliente | Tablaspace con un solo datafile  |
 
 |
 
@@ -111,5 +111,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYyNTY0Nzg1OF19
+eyJoaXN0b3J5IjpbLTE4NTU1Mjk2M119
 -->
