@@ -79,9 +79,13 @@ Blablabla
 | sensor| sensor_num_serie_uk | unique | Asegurar la integridad de los números de serie de los sensores |
 | puesto | puesto_clave_uk | unique | Mantener la integridad entre las claves de los puestos |
 | gimnasio| gimnasio_folio_uk | unique | Validar la integridad y generar consultas eficientes |
-| empleado| empleado_curp_uk | unique | Validar la integridad y asegurar consultas eficientes |
-| empleado| empleado_rfc_uk | unique | Validar la integridad y asegurar consultas eficientes |
-| empleado| empleado_email_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| empleado | empleado_curp_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| empleado | empleado_rfc_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| empleado | empleado_email_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| administrativo | administrativo_login_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
+
 ### Choro consciente
 
 Considerando que tenemos la cantidad de 1500 personas por los mil gimnasios, damos un promedio con base a la estadística de movimiento urbano que un promedio de 40 personas en aforo promedio, que cuenten con sensor, estarán yendo 2 horas diarias. Esto, multiplicado por los 1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
@@ -100,5 +104,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzEzODU4OTAyXX0=
+eyJoaXN0b3J5IjpbNTAyODcxNDU1XX0=
 -->
