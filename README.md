@@ -66,6 +66,7 @@ Blablabla
 | ADMINISTRADOR | EMPLEADO |
 | INSTRUCTOR | EMPLEADO |
 | URLS | EMPLEADO |
+
 </center>
 
 ### Esquema de Indexado
@@ -98,8 +99,33 @@ Blablabla
 |--|--|--|
 | ? | ? | ? |
 
-### Asignación de tablespaces para cada table
+### Asignación de tablespaces para cada tabla
 
+| Nombre de la tabla | Nombre del módulo  |
+|--|--|
+| cliente | tbs_cliente |
+| CREDENCIAL_CLIENTE | tbs_cliente |
+| REPORTE_FISICO | tbs_cliente | 
+| SENSOR | tbs_cliente |
+| SESION | tbs_cliente |
+| BITACORA | tbs_cliente |
+| GIMNASIO | tbs_infraestructura |
+| MULTIMEDIA | tbs_infraestructura |
+| SALA | tbs_infraestructura |
+| DISCIPLINA | tbs_infraestructura |
+| SALA_DISCIPLINA | tbs_infraestructura |
+| DISPOSITIVO | tbs_infraestructura |
+| TIPO_DISPOSITIVO | tbs_infraestructura |
+| STATUS_DISPOSITIVO | tbs_infraestructura |
+| HISTORICO_STATUS_DISPOSTIVO | tbs_infraestructura |
+| APARATO_SESION | tbs_infraestructura |
+| CLIENTE_GIMNASIO | tbs_infraestructura |
+| EMPLEADO | tbs_empleado |
+| PUESTO_ID | tbs_empleado |
+| HUELLA_DIGITAL | tbs_empleado |
+| ADMINISTRADOR | EMPLEADO |
+| INSTRUCTOR | EMPLEADO |
+| URLS | EMPLEADO |
 
 ### Choro consciente
 
@@ -119,5 +145,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ4MTU1ODA2OF19
+eyJoaXN0b3J5IjpbNjY0NDk1NTEwXX0=
 -->
