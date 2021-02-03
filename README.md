@@ -128,13 +128,15 @@ Blablabla
 | urls | tbs_empleado |
 
 ### Asignación de tablespaces para índices
-| Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tabl
-|--|--|
+| Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
+|--|--|--|--|--|
 |  |  |
 
 
 ### Asignación de tablespaces para columnas clob/blob
-
+| Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el indice de la com |
+|--|--|--|--|--|
+|  |  |
 
 ### Choro consciente
 
@@ -154,5 +156,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI0MjQzMTE3XX0=
+eyJoaXN0b3J5IjpbLTc0MzAxMjcxNV19
 -->
