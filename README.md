@@ -102,7 +102,11 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | administrativo | administrativo_login_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | sala | sala_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | disciplina | disciplina_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
-| status_dispositivo_clave_uk | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| status_dispositivo | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
+| tipo_dispositivo | tipo_dispositivo_nombre_ix | function | Generar busquedas eficientes por nombre de dispositivos en mayusculas |
+| sesion | sesion_fecha_incio_ix | Generar busquedas eficientes por fechas |
+| sesion | sesion_fecha_fin_ix | Generar busquedas eficientes por fechas |
+| reporte_fisico | reporte_fisico_fecha_registro_ix | Generar busquedas eficientes por fechas |
 
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
@@ -163,6 +167,10 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | sala_clave_uk | unique | sala | clave | tbs_index |
 | disciplina_clave_uk | unique | disciplina | clave | tbs_index |
 | status_dispositivo_clave_uk | unique | status_dispositivo | clave | tbs_index |
+| tipo_dispositivo_nombre_ix | function | tipo_dispositivo | nombre | tbs_index |
+| sesion_fecha_incio_ix | index | sesion | fecha_inicio | tbs_index |
+| sesion_fecha_fin_ix | index | sesion | fecha_fin | tbs_index |
+| reporte_fisico_fecha_registro_ix | index | reporte_fisico | fecha_registro | tbs_index |
 
 ### Asignación de tablespaces para columnas clob/blob
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
@@ -202,5 +210,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODQyODUxNjE5LDgyOTkwNDcwOF19
+eyJoaXN0b3J5IjpbODM4OTc1MzM0LDgyOTkwNDcwOF19
 -->
