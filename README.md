@@ -49,7 +49,13 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 | Configuración | Descripción y/o configuración |
 |:-----------:|:-----------------:|:-----------:|
-|Número y ubicación de archivos de control| 3 Archivos de control: `enter code here` |
+|Número y ubicación de archivos de control| 3 archivos de control: <ul><li>`/u01/disk1/control01.ctl`</li><li>`/u01/disk2/control02.ctl`</li> <li>`/u01/disk3/control03.ctl`</li></ul> |
+| Propuesta de grupos de REDO | 3 grupos de REDO, con 3 archivos cada uno |
+| Propuesta de juego de caracteres | Character set; `AL32UTF8`. National character set `AL16UTF16` |
+| Tamaño del bloque de datos | 512 Bytes |
+| Lista de parámetros que serán configurados al crear la base de datos.	| <ul><li>db_name: gacabda</li><li>memory_target: 4G</li><li>control_files:<br> `(/u01/disk1/control01.ctl`<br>`/u01/disk2/control02.ctl`<br>`/u01/disk3/control03.ctl)`</li></ul> |
+| Archivo de passwords | <ul><li>`sys`</li><li>`sysbackup`</li></ul>
+
 
 ### Módulos del sistema
 
@@ -228,5 +234,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjIxMzg1NDExLDgyOTkwNDcwOF19
+eyJoaXN0b3J5IjpbMTk0OTEyNTA3NCw4Mjk5MDQ3MDhdfQ==
 -->
