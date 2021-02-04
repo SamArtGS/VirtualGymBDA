@@ -39,14 +39,17 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 | Num. Script | Nombre del Script | Descripción |
 |:-----------:|:-----------------:|:-----------:|
-|1|s-01-creacion-bd.sql|Creación de la BD con los parámetros indicados|
+| 0 | [s-00-crea-directorios.sh](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-00-crea-directorios.sh "s-00-crea-directorios.sh") | Creación de los directorios requeridos | 
+| 1 |[s-01-creacion-bd.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-01-creacion-bd.sql "s-01-creacion-bd.sql")|Creación de la BD con los parámetros indicados|
+| 2 | [s-02-modulos-sistema.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-02-modulos-sistema.sql "s-02-modulos-sistema.sql") | Creación de los tablespaces de cada módulo |
+| 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los objetos |
 
 
 #### Configuración inicial de la BD
 
 | Configuración | Descripción y/o configuración |
 |:-----------:|:-----------------:|:-----------:|
-|Número y ubicación de archivos de control|  |
+|Número y ubicación de archivos de control| 3 Archivos de control: `enter code here` |
 
 ### Módulos del sistema
 
@@ -93,9 +96,11 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
 | cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 | credencial_cliente | credencial_cliente_codigo_barras_uk | unique | Asegurar que no se repitan códigos de barras y generar consultas eficientes |
+| credencial_cliente | credencial_cliente_folio_uk | unique | Generar consultas eficientes por el folio de la credencial |
 | sensor| sensor_num_serie_uk | unique | Asegurar la integridad de los números de serie de los sensores |
 | puesto | puesto_clave_uk | unique | Mantener la integridad entre las claves de los puestos |
 | gimnasio| gimnasio_folio_uk | unique | Validar la integridad y generar consultas eficientes |
+| gimnasio| gimnasio_nombre_ix | function | Generar consultas eficientes de acuerdo al nombre del gimnasio |
 | empleado | empleado_curp_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | empleado | empleado_rfc_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | empleado | empleado_email_uk | unique | Validar la integridad y asegurar consultas eficientes |
@@ -104,24 +109,35 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | disciplina | disciplina_clave_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | status_dispositivo | status_dispositivo_uk | unique | Validar la integridad y asegurar consultas eficientes |
 | tipo_dispositivo | tipo_dispositivo_nombre_ix | function | Generar busquedas eficientes por nombre de dispositivos en mayusculas |
-| sesion | sesion_fecha_incio_ix | Generar busquedas eficientes por fechas |
-| sesion | sesion_fecha_fin_ix | Generar busquedas eficientes por fechas |
-| reporte_fisico | reporte_fisico_fecha_registro_ix | Generar busquedas eficientes por fechas |
+| sesion | sesion_fecha_incio_ix | index | Generar busquedas eficientes por fechas |
+| sesion | sesion_fecha_fin_ix | index | Generar busquedas eficientes por fechas |
+| reporte_fisico | reporte_fisico_fecha_registro_ix | index | Generar busquedas eficientes por fechas |
+
 
 ### Tablespaces 
 | Nombre del tablespace | Configuración  |
 |--|--|
-| tbs_cliente | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
-| tbs_infraestructura | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
-| tbs_empleado | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
-| tbs_index | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
-| tbs_blob | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
-| tbs_blob_index | Tablaspace con un solo datafile ubicado en `/disco/disco01/cliente/datafile.dbf` con un tamaño de `1024M` `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. `Local Managed` y `AutoAllocate Extents` |
+| system | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/system01.dbf`, con un tamaño de `700M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. |
+| sysaux | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/sysaux01.dbf`, con un tamaño de `550M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. |
+| user01 | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/sysaux01.dbf`, con un tamaño de `500M` , `reused`, `autoextend` con un tamaño máximo `unlimited`. |
+| tempts1 | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/temp01.dbf`, con un tamaño de `1G` , `reused`, `autoextend` con incrementos de `640K` y de tamaño máximo `unlimited`. |
+| undotbs1| Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/undotbs01.dbf`, con un tamaño de `2G` , `reused`, `autoextend` con incrementos de `512K` y de tamaño máximo `unlimited`. |
+| tbs_cliente | Tablaspace con dos datafiles ubicados en `/u01/app/oracle/oradata/GACABDA/disk_6/df_cliente_01.dbf` y `/u01/app/oracle/oradata/GACABDA/disk_6/df_cliente_02.dbf`, ambos con un tamaño de `5G` , `reused`, `autoextend` con incrementos de `100M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
+| tbs_infraestructura | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_5/df_infraestructura_01.dbf`, con un tamaño de `1G` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
+| tbs_empleado | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_7/df_empleado_01.dbf`, con un tamaño de `1G` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
+| tbs_index | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_11/df_index_01.dbf`, con un tamaño de `500M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
+| tbs_blob | Tablaspace con dos datafiles ubicados en `/u01/app/oracle/oradata/GACABDA/disk_8/df_blob_01.dbf` y `/u01/app/oracle/oradata/GACABDA/disk_9/df_blob_02.dbf`, ambos con un tamaño de `1G` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
+| tbs_blob_index | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_10/df_blob_index_01.dbf`, con un tamaño de `500M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. El tablespace tiene una configuración `Extent Local Management` y `AutoAllocate`, con un manejo automatico de los segmentos. |
 
 ### Tablespaces por módulo
-| Nombre del módulo | Objetivo/Beneficio | Tipo |
+| Nombre del tablespace | Objetivo/Beneficio | Tipo |
 |--|--|--|
-| ? | ? |  |
+| tbs_cliente | Aislamiento de las tablas relacionadas con los clientes. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
+| tbs_ infraestructura | Aislamiento de las tablas relacionadas con la insfraestructura del gimnasio, como salas, disciplinas y dispositivos. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
+| tbs_empleado | Aislamiento de las tablas relacionadas con los empleados. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
+| tbs_ index | Mantener los indices separados de las tablas y demás objetos | Usuario |
+| tbs_blob | Almacenar los datos segmentos de los datos blob, con la finalidad de reducir la carga a los tablespace de los objetos | Usuario |
+| tbs_blob_index | Almancenar los segmentos de los indices de los datos blob | Usuario |
 
 ### Asignación de tablespaces para tablas
 
@@ -157,9 +173,11 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | cliente_username_uk | unique | cliente | username | tbs_index |
 | cliente_curp_uk | unique | cliente | curp | tbs_index |
 | credencial_cliente_codigo_barras_uk | unique | credencial_cliente |codigo_barras | tbs_index |
+| credencial_cliente_folio_uk | unique |credencial_cliente | folio | tbs_index |
 | sensor_num_serie_uk | unique | sensor | num_serie | tbs_index |
 | puesto_clave_uk | unique | puesto | clave | tbs_index |
 | gimnasio_folio_uk | unique | gimnasio | folio | tbs_index |
+| gimnasio_nombre_ix | function | gimnasio | nombre | tbs_index |
 | empleado_curp_uk | unique | empleado | curp | tbs_index |
 | empleado_rfc_uk | unique | empleado | rfc | tbs_index |
 | empleado_email_uk | unique | empleado | email | tbs_index |
@@ -210,5 +228,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM4OTc1MzM0LDgyOTkwNDcwOF19
+eyJoaXN0b3J5IjpbMjIxMzg1NDExLDgyOTkwNDcwOF19
 -->
