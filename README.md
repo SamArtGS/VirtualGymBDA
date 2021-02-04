@@ -42,13 +42,14 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | 0 | [s-00-crea-directorios.sh](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-00-crea-directorios.sh "s-00-crea-directorios.sh") | Creación de los directorios requeridos | 
 | 1 |[s-01-creacion-bd.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-01-creacion-bd.sql "s-01-creacion-bd.sql")|Creación de la BD con los parámetros indicados|
 | 2 | [s-02-modulos-sistema.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-02-modulos-sistema.sql "s-02-modulos-sistema.sql") | Creación de los tablespaces de cada módulo |
-| 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los objetos |
+| 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los roles y usuarios de la bd |
+| 4 | [s-04-crea-tablas.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-04-crea-tablas.sql "s-04-crea-tablas.sql") | Creación de los objetos |
 
 
 #### Configuración inicial de la BD
 
 | Configuración | Descripción y/o configuración |
-|:-----------:|:-----------------:|:-----------:|
+|:-----------:|:----------------------------:|
 |Número y ubicación de archivos de control| 3 archivos de control: <ul><li>`/u01/disk1/control01.ctl`</li><li>`/u01/disk2/control02.ctl`</li> <li>`/u01/disk3/control03.ctl`</li></ul> |
 | Propuesta de grupos de REDO | 3 grupos de REDO, con 3 archivos cada uno |
 | Propuesta de juego de caracteres | Character set; `AL32UTF8`. National character set `AL16UTF16` |
@@ -234,5 +235,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk0OTEyNTA3NCw4Mjk5MDQ3MDhdfQ==
+eyJoaXN0b3J5IjpbLTk3NDg4NTkzNiw4Mjk5MDQ3MDhdfQ==
 -->
