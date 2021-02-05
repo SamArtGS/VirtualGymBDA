@@ -44,6 +44,10 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | 2 | [s-02-modulos-sistema.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-02-modulos-sistema.sql "s-02-modulos-sistema.sql") | Creación de los tablespaces de cada módulo |
 | 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los roles y usuarios de la bd |
 | 4 | [s-04-crea-tablas.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-04-crea-tablas.sql "s-04-crea-tablas.sql") | Creación de los objetos |
+| 5 | [s-05-carga-inicial.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-carga-inicial.sql "s-05-carga-inicial.sql") | Carga inicial de datos |
+| 6 | [s-05-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-tnsnames.txt "s-05-tnsnames.txt") | Configuración del tnsnames |  
+| 7 | [s-06-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-habilitar-fra.sql "s-06-habilitar-fra.sql") | Habilitación de la FRA | 
+| 8 | [s-07-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-07-habilitar-modo-archivelog.sql "s-07-habilitar-modo-archivelog.sql") | Activación del modo archivelog |
 
 
 #### Configuración inicial de la BD
@@ -228,6 +232,17 @@ Número de redo logs: `3*3=9`
 Tamaño de redo logs: `100M`
 En consideracion con lo anterior, se proponen `40 GB` para la FRA.
 
+### Planeación del esquema de respaldos
+
+Dada la cantidad de registros esperados se propone un backup con las siguientes característicias:
+- Política de retención de respaldos: Redundant based policy, de 4 backup nivel 0.
+- Implementación de respaldos incrementales diferenciales.
+	- Los respaldos tipo 0 se realizarán los domingos porque todo el mundo esta crudo.
+	- Los resplados tipo 1 se realizarán diario a las 2 de la tarde, porque ¿quién en su sano juicio va al gimnasio a esa hora?
+
+Tamaño total del espacio en disco disponibles: `50 GB`.
+
+
 ### Choro consciente
 
 Considerando que tenemos la cantidad de 1500 personas por los mil gimnasios, damos un promedio con base a la estadística de movimiento urbano que un promedio de 40 personas en aforo promedio, que cuenten con sensor, estarán yendo 2 horas diarias. Esto, multiplicado por los 1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
@@ -246,5 +261,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgzMDUxMTkyLDgyOTkwNDcwOF19
+eyJoaXN0b3J5IjpbLTgxODY0MzM5Nyw4Mjk5MDQ3MDhdfQ==
 -->
