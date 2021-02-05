@@ -217,6 +217,17 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | archivo | multimedia_archivo_bix | multimedia | tbs_blob | tbs_blob_index |
 | icono | disciplina_icono_bix | disciplina | tbs_blob | tbs_blob_index |
 
+### Asignación de tamaño de la FRA
+Se recomienda que el tamaño de la FRA sea al menos 2 veces el tamaño actual de los archivos de la base de datos. Para obtener dicho valor se ejecuto la sigueinte sentencia:
+
+    select round((sum(bytes)/1048576/1024),2) as sizeBD_GB from v$datafile;
+Cuyo resultado fue: `22.69 GB`. 
+Tamaño de las transacciones diarias: `150 MB`
+Numero de días: `10`
+Número de redo logs: `3*3=9`
+Tamaño de redo logs: `100M`
+En consideracion con lo anterior, se proponen `40 GB` para la FRA.
+
 ### Choro consciente
 
 Considerando que tenemos la cantidad de 1500 personas por los mil gimnasios, damos un promedio con base a la estadística de movimiento urbano que un promedio de 40 personas en aforo promedio, que cuenten con sensor, estarán yendo 2 horas diarias. Esto, multiplicado por los 1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
@@ -235,5 +246,5 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTk3NDg4NTkzNiw4Mjk5MDQ3MDhdfQ==
+eyJoaXN0b3J5IjpbNjgzMDUxMTkyLDgyOTkwNDcwOF19
 -->
