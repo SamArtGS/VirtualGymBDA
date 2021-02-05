@@ -1,0 +1,22 @@
+GACABDA_DEDICATED =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = pc-sgs.fi.unam)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.76)(PORT = 1522))
+    )
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = gacabda)
+    )
+)
+
+GACABDA_SHARED =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = pc-sgs.fi.unam)(PORT = 1521))
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.1.76)(PORT = 1522))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = gacabda)
+    )
+)
