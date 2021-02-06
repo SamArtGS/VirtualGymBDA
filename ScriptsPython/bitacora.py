@@ -12,6 +12,8 @@ n_cliente = 1
 
 lista_sesiones = []
 lista_sensores = []
+lista_sesion_dispositivo = []
+count = 1
 
 def random_date(start, end):
   """Generate a random datetime between `start` and `end`"""
@@ -43,6 +45,7 @@ class Sesion():
     else: 
       self.tipo_sesion = 'P'
       self.sala_id = "'" + str(random.randint(1,4000)) + "'"
+      lista_sesion_dispositivo.append(count)
     self.cliente_id = random.randint(1, 100000)
     self.empleado_id = random.randint(1, 15000)
     if random.randint(1,3) == 1: self.sensor_id = "'" + str(random.randint(1, 30000)) + "'" # Número de sensores:
@@ -74,6 +77,17 @@ def revisarFechas():
 
 f1 = open("bitacora.sql", "w")
 
+def generarSesionesDispositivo():
+  f2 = open("dispositivo-sesion.sql", "w")
+  for sesion_id in lista_sesion_dispositivo:
+    for i in range(random.randint(1,5)):
+      f2.write(
+        "insert into dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)"
+        + "values (seq_dispositivo_sesion.nextval, " + str(random.randint(1, 50000)) + ", "
+        + str(sesion_id) + ");\n"
+      )
+  f2.close()
+
 def generarSensores():
   f2 = open("sensor.sql", "w")
   for i in range(30000):
@@ -91,9 +105,9 @@ def generarSensores():
 def generarSesiones():
   global fecha_actual
   global lista_sesiones
+  global count
   fecha_actual = datetime(2020, 1, 1, 8, 00, 00, 00000)
   f2 = open("sesion.sql", "w")
-  count = 1
   for i in range(1000000):
     sesion = Sesion(fecha_actual)
     actualizarTiempoSesion()
@@ -116,6 +130,7 @@ def generarSesiones():
 
 generarSensores()
 generarSesiones()
+generarSesionesDispositivo()
 for sesion in lista_sesiones:
   fecha_actual = sesion.fecha_inicio
   for i in range(120):
