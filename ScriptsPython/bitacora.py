@@ -13,6 +13,7 @@ n_cliente = 1
 lista_sesiones = []
 lista_sensores = []
 lista_sesion_dispositivo = []
+lista_clientes = {}
 count = 1
 
 def random_date(start, end):
@@ -21,6 +22,10 @@ def random_date(start, end):
     # Get a random amount of seconds between `start` and `end`
     seconds=random.randint(0, int((end - start).total_seconds())),
   )
+
+class Cliente():
+  def __init__(self):
+    self.num_sesion = 1
 
 class Sensor():
   def __init__(self):
@@ -37,6 +42,7 @@ class Sensor():
 
 class Sesion():
   def __init__(self, fecha_inicio):
+    global lista_clientes
     self.fecha_inicio = fecha_inicio
     self.fecha_fin = fecha_inicio + timedelta(hours=2)
     if random.randint(1,4) == 1: 
@@ -46,7 +52,12 @@ class Sesion():
       self.tipo_sesion = 'P'
       self.sala_id = "'" + str(random.randint(1,4000)) + "'"
       lista_sesion_dispositivo.append(count)
-    self.cliente_id = random.randint(1, 100000)
+    cliente = random.randint(1, 100000)
+    if lista_clientes.get(cliente) != None: 
+      lista_clientes[cliente].num_sesion += 1
+    else:
+      lista_clientes[cliente] = Cliente()
+    self.cliente_id = cliente
     self.empleado_id = random.randint(1, 15000)
     if random.randint(1,3) == 1: self.sensor_id = "'" + str(random.randint(1, 30000)) + "'" # Número de sensores:
     else: self.sensor_id = 'null'
@@ -90,7 +101,7 @@ def generarSesionesDispositivo():
 
 def generarSensores():
   f2 = open("sensor.sql", "w")
-  for i in range(30000):
+  for i in range(30000): # Número de sensores
     sensor = Sensor()
     f2.write(
       "insert into sensor(sensor_id, num_serie, fecha_compra, marca, cliente)"
@@ -108,17 +119,18 @@ def generarSesiones():
   global count
   fecha_actual = datetime(2020, 1, 1, 8, 00, 00, 00000)
   f2 = open("sesion.sql", "w")
-  for i in range(1000000):
+  for i in range(50000): # Número de registros en la tabla sesión
     sesion = Sesion(fecha_actual)
     actualizarTiempoSesion()
     f2.write(
       "insert into sesion(sesion_id, num_sesion_cliente, fecha_incio, fecha_fin"
       + ", tipo_sesion, cliente_id, empleado_id, sala_id, sensor_id) values("
       + "seq_sesion.nextval, "
+      + "" + str(lista_clientes[sesion.cliente_id].num_sesion) + ", "
       + "'" + sesion.fecha_inicio.strftime('%d/%m/%Y %H:%M:%S') + "', "
       + "'" + sesion.fecha_fin.strftime('%d/%m/%Y %H:%M:%S') + "', "
       + "'" + str(sesion.tipo_sesion) + "', "
-      + "'" + str(sesion.cliente_id) + "', "
+      + "" + str(sesion.cliente_id) + ", "
       + str(sesion.empleado_id) + ", "
       + str(sesion.sala_id) + ", "
       + str(sesion.sensor_id) + ");\n"
