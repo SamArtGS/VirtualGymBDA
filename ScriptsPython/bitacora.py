@@ -1,0 +1,127 @@
+import random
+from datetime import date
+from datetime import datetime
+from datetime import timedelta
+
+
+fecha_actual = datetime(2020, 2, 15, 8, 00, 00, 00000)
+sql_ini = "insert into bitacora (bitacora_id, calorias_consumidas, fecha_hora_registro, sesion_id) values("
+sql_fin = ");\n" 
+
+n_cliente = 1
+
+lista_sesiones = []
+lista_sensores = []
+
+def random_date(start, end):
+  """Generate a random datetime between `start` and `end`"""
+  return start + timedelta(
+    # Get a random amount of seconds between `start` and `end`
+    seconds=random.randint(0, int((end - start).total_seconds())),
+  )
+
+class Sensor():
+  def __init__(self):
+    global n_cliente
+    valores = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    self.num_serie = "".join([random.choice(valores) for i in range(20)])
+    self.fecha_compra = random_date(datetime(2019, 2, 15, 8, 00, 00, 00000), datetime(2020, 12, 31, 8, 00, 00, 00000))
+    rand = random.randint(1,3)
+    if rand == 1: self.marca = "Polar H9"
+    elif rand == 2: self.marca = "Deporprive"
+    else: self.marca = "Garmin"
+    n_cliente += random.randint(1, 5)
+    self.cliente_id = n_cliente
+
+class Sesion():
+  def __init__(self, fecha_inicio):
+    self.fecha_inicio = fecha_inicio
+    self.fecha_fin = fecha_inicio + timedelta(hours=2)
+    if random.randint(1,4) == 1: 
+      self.tipo_sesion = 'V'
+      self.sala_id = 'null'
+    else: 
+      self.tipo_sesion = 'P'
+      self.sala_id = "'" + str(random.randint(1,4000)) + "'"
+    self.cliente_id = random.randint(1, 100000)
+    self.empleado_id = random.randint(1, 15000)
+    if random.randint(1,3) == 1: self.sensor_id = "'" + str(random.randint(1, 30000)) + "'" # Número de sensores:
+    else: self.sensor_id = 'null'
+
+
+
+class Bitacora():
+  def __init__(self, sesion_id, fecha_inicio, fecha_fin):
+    self.sesion_id = sesion_id
+    self.fecha_inicio = fecha_inicio
+    self.fecha_fin = fecha_fin
+
+def actualizarTiempo():
+  global fecha_actual
+  fecha_actual += timedelta(minutes=1)
+
+def actualizarTiempoSesion():
+  global fecha_actual
+  fecha_actual += timedelta(hours=random.randint(0,2), minutes=random.randint(1,60))
+
+
+def revisarFechas():
+  global fecha_actual
+  global lista_sesiones
+  for sesion in lista_sesiones:
+    if (fecha_actual > sesion.fecha_fin):
+      lista_sesiones.remove(sesion)
+
+f1 = open("bitacora.sql", "w")
+
+def generarSensores():
+  f2 = open("sensor.sql", "w")
+  for i in range(30000):
+    sensor = Sensor()
+    f2.write(
+      "insert into sensor(sensor_id, num_serie, fecha_compra, marca, cliente)"
+      + "values (seq_sensor.nextval, '" + sensor.num_serie + "', "
+      + "'" + sensor.fecha_compra.strftime('%d/%m/%Y %H:%M:%S') + "', "
+      + "'" + sensor.marca + "', "
+      + str(sensor.cliente_id) + ");\n"
+    )
+    lista_sensores.append(sensor)
+  f2.close()
+
+def generarSesiones():
+  global fecha_actual
+  global lista_sesiones
+  fecha_actual = datetime(2020, 1, 1, 8, 00, 00, 00000)
+  f2 = open("sesion.sql", "w")
+  count = 1
+  for i in range(1000000):
+    sesion = Sesion(fecha_actual)
+    actualizarTiempoSesion()
+    f2.write(
+      "insert into sesion(sesion_id, num_sesion_cliente, fecha_incio, fecha_fin"
+      + ", tipo_sesion, cliente_id, empleado_id, sala_id, sensor_id) values("
+      + "seq_sesion.nextval, "
+      + "'" + sesion.fecha_inicio.strftime('%d/%m/%Y %H:%M:%S') + "', "
+      + "'" + sesion.fecha_fin.strftime('%d/%m/%Y %H:%M:%S') + "', "
+      + "'" + str(sesion.tipo_sesion) + "', "
+      + "'" + str(sesion.cliente_id) + "', "
+      + str(sesion.empleado_id) + ", "
+      + str(sesion.sala_id) + ", "
+      + str(sesion.sensor_id) + ");\n"
+    )
+    lista_sesiones.append(Bitacora(count, sesion.fecha_inicio, sesion.fecha_fin))
+    count += 1
+  f2.close()
+
+
+generarSensores()
+generarSesiones()
+for sesion in lista_sesiones:
+  fecha_actual = sesion.fecha_inicio
+  for i in range(120):
+    temp = "seq_bitacora.nextval, " + str(random.randint(1,10)) + " ,"
+    temp += fecha_actual.strftime('%d/%m/%Y %H:%M:%S') + " ,"
+    temp += str(sesion.sesion_id)
+    f1.write(sql_ini + temp + sql_fin)
+    fecha_actual += timedelta(minutes=1)
+f1.close()
