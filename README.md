@@ -59,7 +59,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 | 5 | [s-06-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-tnsnames.txt "s-0-tnsnames.txt") | Carga inicial de datos |
 | 6 | [s-0-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-tnsnames.txt "s-056-tnsnames.txt") | Configuración del tnsnames |  
 | 7 | [s-0-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-0-habilitar-fra.sql "s-0-habilitar-fra.sql") | Habilitación de la FRA | 
-| 8 | [s-0-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-078-habilitar-modo-archivelog.sql "s-078-habilitar-modo-archivelog.sql") | Habilitación del modo Archive log
+| 8 | [s-08-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-08-habilitar-modo-archivelog.sql "s-08-habilitar-modo-archivelog.sql") | Habilitación del modo Archive log
 | 9 | [s-09-carga-blob.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-carga-blob.sql "s-09-carga-blob.sql") | Función para realizar carga de datos blob
 | 10 | [s-09-rman.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-rman.rman "s-09-rman.rman") | Configuración de respaldos |
 | 11 | [s-10-respaldo-inicial.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-10-respaldo-inicial.rman "s-10-respaldo-inicial.rman") | Respaldo inicial de la base datos |
@@ -394,5 +394,5 @@ Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que fina
 Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, con 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5ODc3MDQ3OTZdfQ==
+eyJoaXN0b3J5IjpbLTEzMjE0ODAzNl19
 -->
