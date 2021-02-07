@@ -56,10 +56,16 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 | 2 | [s-02-modulos-sistema.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-02-modulos-sistema.sql "s-02-modulos-sistema.sql") | Creación de los tablespaces de cada módulo |
 | 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los roles y usuarios de la bd |
 | 4 | [s-04-crea-tablas.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-04-crea-tablas.sql "s-04-crea-tablas.sql") | Creación de los objetos |
-| 5 | [s-05-carga-inicial.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-carga-inicial.sql "s-05-carga-inicial.sql") | Carga inicial de datos |
-| 6 | [s-05-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-tnsnames.txt "s-05-tnsnames.txt") | Configuración del tnsnames |  
-| 7 | [s-06-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-habilitar-fra.sql "s-06-habilitar-fra.sql") | Habilitación de la FRA | 
-| 8 | [s-07-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-07-habilitar-modo-archivelog.sql "s-07-habilitar-modo-archivelog.sql") | Activación del modo archivelog |
+| 5 | [s-06-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-tnsnames.txt "s-0-tnsnames.txt") | Carga inicial de datos |
+| 6 | [s-0-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-tnsnames.txt "s-056-tnsnames.txt") | Configuración del tnsnames |  
+| 7 | [s-0-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-0-habilitar-fra.sql "s-0-habilitar-fra.sql") | Habilitación de la FRA | 
+| 8 | [s-0-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-078-habilitar-modo-archivelog.sql "s-078-habilitar-modo-archivelog.sql") | Habilitación del modo Archive log
+| 9 | [s-09-carga-blob.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-carga-blob.sql "s-09-carga-blob.sql") | Función para realizar carga de datos blob
+| 10 | [s-09-rman.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-rman.rman "s-09-rman.rman") | Configuración de respaldos |
+| 11 | [s-10-respaldo-inicial.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-10-respaldo-inicial.rman "s-10-respaldo-inicial.rman") | Respaldo inicial de la base datos |
+| 12 | [s-11-simulacion-carga-diaria.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-11-simulacion-carga-diaria.sql "s-11-simulacion-carga-diaria.sql") | Simulación diaria de carga de datos REDO |
+| 13 | [s-12-instance-recovery.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-12-instance-recovery.sql "s-12-instance-recovery.sql") | Instance Recovery |
+| 14 | [s-14-media-recovery.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-14-media-recovery.rman "s-14-media-recovery.rman") | Media Recovery |
 
 
 #### Configuración inicial de la BD
@@ -77,7 +83,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Módulos del sistema
 
 | Nombre del módulo | Descripción | Usuario |
-|:--:|:--:|:--:|
+|--:|
 | cliente | Agrupa toda la información en forma de objetos de los clientes. | user_cliente |
 | infraestructura | Corresponde a todos los objetos relacionados con la infraestructura del gimnasio, como las salas, disciplinas impartidas y dispositivos para hacer ejercicios | user_infraestructura |
 | empleado | Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado |
@@ -117,7 +123,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Esquema de Indexado
 
 | Nombre de la tabla | Nombre del indice | Tipo | Propósito |
-|:--:|:--:|:--:|:--:|
+|:--:|:--:|:--:|:|--|--|--:|
 | cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
 | cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 | credencial_cliente | credencial_cliente_codigo_barras_uk | unique | Asegurar que no se repitan códigos de barras y generar consultas eficientes |
@@ -168,7 +174,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Asignación de tablespaces para tablas
 
 | Nombre de la tabla | Nombre del tablespace |
-|:--:|:--:|
+|--:|
 | cliente | tbs_cliente |
 | credencial_cliente| tbs_cliente |
 | reporte_fisico | tbs_cliente | 
@@ -196,7 +202,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Asignación de tablespaces para índices
 
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
-|:--:|:--:|:--:|:--:|:--:|
+|:--:|:--:|:--:|:--:|:|--|--|--|--:|
 | cliente_username_uk | unique | cliente | username | tbs_index |
 | cliente_curp_uk | unique | cliente | curp | tbs_index |
 | credencial_cliente_codigo_barras_uk | unique | credencial_cliente |codigo_barras | tbs_index |
@@ -295,12 +301,13 @@ run{
 ### Simulación de carga
 
 La tabla bitácora y sesión son las que más datos generan por lo que son las que se consideran para esta simulación.
-
+ Simulación de carga
 | Fecha y Hora | Datos REDO (MB) | Tipo Backup | Espacio requerido Gb |
-|:----------------:|:---:|:-----------------:|:----------:|
-| 07/02/2021 08:00 | 867.32 | Incremental dif 0 | 2.0287 |
-| 08/02/2021 14:00 | 901.85 | Incremental dif 1 | 0.9086 |
-| 09/02/2021 14:00 | 946.12 | Incremental dif 1 | 0.9532 |
+|:--------------|
+|--:|:---:|:-----------------:|:----------:--|--|
+| 075/02/2021 0814:00 | 867.32110 | Incremental dif 0 | 2.0287 |
+| 086/02/2021 14:00 | 901.85110 | Incremental dif 1 | 0.9086 |
+| 097/02/2021 1408:00 | 946.12110 | Incremental dif 1 | 0.9532 |
 | 10/02/2021 14:00 | 981.75 | Incremental dif 1 | 0.9890 |
 | 11/02/2021 14:00 | 858.14 | Incremental dif 1 | 0.8645 |
 | 12/02/2021 14:00 | 504.99 | Incremental dif 1 | 0.5087 |
@@ -319,7 +326,8 @@ La tabla bitácora y sesión son las que más datos generan por lo que son las q
 
 ### Simular instance recovery
 
-Se ejecutó @bitacora.sql durante media hora cada lapso, para simular las cargas diarias y se consideró igual los días de la semana que la gente suele ir al gimnasio.
+Se ejecutó @bitacora.sql durante media hora cada lapso, para simula0 |  |
+### cargas diarias y se consideró igual los días de la semana que la gente suele ir al gimnasio.
 
 Se obtuvieron los siguientes resultados.
 
@@ -371,5 +379,20 @@ run{
 #### Online 
 ![](img/backup5.png)
 
-# QDEP ✝︎
+# QDEP ✝︎1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
 
+40\*(1000\*23\*120)/(1024**2) = 105.285 Mb (diarios)
+
+Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que finalmente tendremos una consulta de 55-56 por segundo.
+
+40000/(12*60) = 55.5 datos por min aprox.
+
+
+(23\*1500\*60)/1024*\*2\*120
+
+
+Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, con 
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE5ODc3MDQ3OTZdfQ==
+-->
