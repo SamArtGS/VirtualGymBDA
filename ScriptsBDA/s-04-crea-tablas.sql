@@ -158,7 +158,7 @@ create table user_empleado.empleado(
   empleado_id         number(10, 0)    not null,
   nombre              varchar2(40)     not null,
   ap_paterno          varchar2(40)     not null,
-  ap_matertno         varchar2(40),
+  ap_materno          varchar2(40),
   curp                varchar2(18)     not null,
   num_trabajador      number(10, 0)    not null,
   rfc                 varchar2(15)     not null,
@@ -178,7 +178,7 @@ create table user_empleado.administrativo(
   empleado_id            number(10, 0)    not null,
   login                  varchar2(40)     not null,
   password               varchar2(255)    not null,
-  rol                    varchar2(40)     not null,
+  rol                    char(1)          not null,
   certificado_digital    blob             not null,
   constraint administrativo_pk primary key (empleado_id), 
   constraint administrativo_empleado_id_fk foreign key (empleado_id)
@@ -197,10 +197,7 @@ create table user_infraestructura.gimnasio(
   longitud       number(8, 5)     not null,
   telefono       varchar2(10)     not null,
   pagina_web     varchar2(255)    not null,
-  empleado_id    number(10, 0)    not null,
-  constraint gimnasio_pk primary key (gimnasio_id), 
-  constraint gimnasio_empleado_id_fk foreign key (empleado_id)
-  references user_empleado.administrativo(empleado_id)
+  constraint gimnasio_pk primary key (gimnasio_id)
 );
 
 grant references (cliente_id) on user_cliente.cliente to user_infraestructura;
@@ -307,7 +304,7 @@ create table user_infraestructura.sala_disciplina(
 create table user_empleado.instructor(
   empleado_id           number(10, 0)    not null,
   anios_experiencia     number(2, 0)     not null,
-  cedula_prefesional    number(10, 0)    not null,
+  cedula_profesional    number(10, 0)    not null,
   suplente_id           number(10, 0),
   constraint instructor_pk primary key (empleado_id), 
   constraint instructor_empleado_id_fk foreign key (empleado_id)
@@ -359,7 +356,16 @@ create table user_cliente.bitacora(
   constraint bitacora_pk primary key (bitacora_id), 
   constraint bitacora_sesion_id_fk foreign key (sesion_id)
     references user_cliente.sesion(sesion_id)
+)
+partition by range(fecha_hora_registro) 
+interval(numtoyminterval(1,'MONTH'))
+( partition 
+  p0 values less than(to_date('01-01-2020','dd-mm-yyyy')), 
+  partition p1 values less than(to_date('01-02-2020','dd-mm-yyyy')), 
+  partition p2 values less than(to_date('01-03-2020','dd-mm-yyyy'))
 );
+
+-- alter table user_cliente.bitacora modify partition by range(fecha_hora_registro) interval(numtoyminterval(1,'MONTH'))(partition p0 values less than(to_date('01-01-2020','dd-mm-yyyy')), partition p1 values less than(to_date('01-02-2020','dd-mm-yyyy')), partition p2 values less than(to_date('01-03-2020','dd-mm-yyyy')));
 
 create table user_cliente.credencial_cliente(
   cliente_id       number(10, 0)    not null,
@@ -432,4 +438,6 @@ create table user_infraestructura.dispositivo_sesion(
     references user_cliente.sesion(sesion_id)
 );
 
-grant insert on tbs_blob to user_infraestructura;
+alter user user_infraestructura quota unlimited on tbs_blob;
+alter user user_empleado quota unlimited on tbs_blob;
+alter user user_cliente quota unlimited on tbs_blob;

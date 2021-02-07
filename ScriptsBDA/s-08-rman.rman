@@ -1,0 +1,7 @@
+run {
+    backup incremental to compressed backupset;
+    configure backup optimization on;
+    configure retention policy to redundancy 3;
+    configure controlfile autobackup format for device type disk clear;
+    configure channel device type disk format 'ora_df%t_s%s_s%p';
+}

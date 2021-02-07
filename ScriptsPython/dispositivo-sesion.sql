@@ -1,0 +1,10 @@
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 634, 2);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 12705, 2);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 7947, 3);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 9043, 3);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 7835, 3);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 26624, 3);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 28204, 4);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 445, 4);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 10233, 4);
+insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)values (user_infraestructura.seq_dispositivo_sesion.nextval, 20049, 4);

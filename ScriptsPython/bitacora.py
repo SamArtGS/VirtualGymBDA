@@ -5,7 +5,7 @@ from datetime import timedelta
 
 
 fecha_actual = datetime(2020, 2, 15, 8, 00, 00, 00000)
-sql_ini = "insert into bitacora (bitacora_id, calorias_consumidas, fecha_hora_registro, sesion_id) values("
+sql_ini = "insert into user_cliente.bitacora (bitacora_id, calorias_consumidas, fecha_hora_registro, sesion_id) values("
 sql_fin = ");\n" 
 
 n_cliente = 1
@@ -50,7 +50,7 @@ class Sesion():
       self.sala_id = 'null'
     else: 
       self.tipo_sesion = 'P'
-      self.sala_id = "'" + str(random.randint(1,4000)) + "'"
+      self.sala_id = str(random.randint(1,4000))
       lista_sesion_dispositivo.append(count)
     cliente = random.randint(1, 100000)
     if lista_clientes.get(cliente) != None: 
@@ -58,17 +58,18 @@ class Sesion():
     else:
       lista_clientes[cliente] = Cliente()
     self.cliente_id = cliente
-    self.empleado_id = random.randint(1, 15000)
-    if random.randint(1,3) == 1: self.sensor_id = "'" + str(random.randint(1, 30000)) + "'" # Número de sensores:
+    self.empleado_id = random.randint(3000, 15000)
+    if random.randint(1,3) == 1: self.sensor_id = str(random.randint(1, 30000)) # Número de sensores:
     else: self.sensor_id = 'null'
 
 
 
 class Bitacora():
-  def __init__(self, sesion_id, fecha_inicio, fecha_fin):
+  def __init__(self, sesion_id, fecha_inicio, fecha_fin, sensor_id):
     self.sesion_id = sesion_id
     self.fecha_inicio = fecha_inicio
     self.fecha_fin = fecha_fin
+    self.sensor_id = sensor_id
 
 def actualizarTiempo():
   global fecha_actual
@@ -93,8 +94,8 @@ def generarSesionesDispositivo():
   for sesion_id in lista_sesion_dispositivo:
     for i in range(random.randint(1,5)):
       f2.write(
-        "insert into dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)"
-        + "values (seq_dispositivo_sesion.nextval, " + str(random.randint(1, 50000)) + ", "
+        "insert into user_infraestructura.dispositivo_sesion(dispositivo_sesion_id, dispositivo_id, sesion_id)"
+        + "values (user_infraestructura.seq_dispositivo_sesion.nextval, " + str(random.randint(1, 30000)) + ", "
         + str(sesion_id) + ");\n"
       )
   f2.close()
@@ -104,8 +105,8 @@ def generarSensores():
   for i in range(30000): # Número de sensores
     sensor = Sensor()
     f2.write(
-      "insert into sensor(sensor_id, num_serie, fecha_compra, marca, cliente)"
-      + "values (seq_sensor.nextval, '" + sensor.num_serie + "', "
+      "insert into user_cliente.sensor(sensor_id, num_serie, fecha_compra, marca, cliente_id)"
+      + "values (user_cliente.seq_sensor.nextval, '" + sensor.num_serie + "', "
       + "'" + sensor.fecha_compra.strftime('%d/%m/%Y %H:%M:%S') + "', "
       + "'" + sensor.marca + "', "
       + str(sensor.cliente_id) + ");\n"
@@ -119,23 +120,23 @@ def generarSesiones():
   global count
   fecha_actual = datetime(2020, 1, 1, 8, 00, 00, 00000)
   f2 = open("sesion.sql", "w")
-  for i in range(50000): # Número de registros en la tabla sesión
+  for i in range(5): # Número de registros en la tabla sesión
     sesion = Sesion(fecha_actual)
     actualizarTiempoSesion()
     f2.write(
-      "insert into sesion(sesion_id, num_sesion_cliente, fecha_incio, fecha_fin"
+      "insert into user_cliente.sesion(sesion_id, num_sesion_cliente, fecha_inicio, fecha_fin"
       + ", tipo_sesion, cliente_id, empleado_id, sala_id, sensor_id) values("
-      + "seq_sesion.nextval, "
+      + "user_cliente.seq_sesion.nextval, "
       + "" + str(lista_clientes[sesion.cliente_id].num_sesion) + ", "
       + "'" + sesion.fecha_inicio.strftime('%d/%m/%Y %H:%M:%S') + "', "
       + "'" + sesion.fecha_fin.strftime('%d/%m/%Y %H:%M:%S') + "', "
       + "'" + str(sesion.tipo_sesion) + "', "
-      + "" + str(sesion.cliente_id) + ", "
+      + str(sesion.cliente_id) + ", "
       + str(sesion.empleado_id) + ", "
       + str(sesion.sala_id) + ", "
       + str(sesion.sensor_id) + ");\n"
     )
-    lista_sesiones.append(Bitacora(count, sesion.fecha_inicio, sesion.fecha_fin))
+    lista_sesiones.append(Bitacora(count, sesion.fecha_inicio, sesion.fecha_fin, sesion.sensor_id))
     count += 1
   f2.close()
 
@@ -145,10 +146,11 @@ generarSesiones()
 generarSesionesDispositivo()
 for sesion in lista_sesiones:
   fecha_actual = sesion.fecha_inicio
-  for i in range(120):
-    temp = "seq_bitacora.nextval, " + str(random.randint(1,10)) + " ,"
-    temp += fecha_actual.strftime('%d/%m/%Y %H:%M:%S') + " ,"
-    temp += str(sesion.sesion_id)
-    f1.write(sql_ini + temp + sql_fin)
-    fecha_actual += timedelta(minutes=1)
+  if sesion.sensor_id != "null":
+    for i in range(120):
+      temp = "user_cliente.seq_bitacora.nextval, " + str(random.randint(1,10)) + " ,"
+      temp += "'" + fecha_actual.strftime('%d/%m/%Y %H:%M:%S') + "' ,"
+      temp += str(sesion.sesion_id)
+      f1.write(sql_ini + temp + sql_fin)
+      fecha_actual += timedelta(minutes=1)
 f1.close()

@@ -10,3 +10,5 @@ create pfile from spfile;
 alter system set db_recovery_file_dest_size = 40G scope = both;
 alter system set db_recovery_file_dest='/configurar' scope = both;
 alter system set db_flashback_retention_target=14400 scope = both; -- 10 días
+
+alter session set nls_date_format="yyyy-mm-dd hh24:mi:ss";
