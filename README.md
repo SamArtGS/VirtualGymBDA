@@ -45,8 +45,6 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 
 ![](Modelo/modelo_logico.jpg)
 
-### Usuarios
-
 ### Tabla de Scripts
 
 | Num. Script | Nombre del Script | Descripción |
@@ -123,7 +121,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Esquema de Indexado
 
 | Nombre de la tabla | Nombre del indice | Tipo | Propósito |
-|:--:|:--:|:--:|:|--|--|--:|
+|:--:|:--:|:--:|:--:|
 | cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
 | cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 | credencial_cliente | credencial_cliente_codigo_barras_uk | unique | Asegurar que no se repitan códigos de barras y generar consultas eficientes |
@@ -174,7 +172,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Asignación de tablespaces para tablas
 
 | Nombre de la tabla | Nombre del tablespace |
-|--:|
+|:--|:--|
 | cliente | tbs_cliente |
 | credencial_cliente| tbs_cliente |
 | reporte_fisico | tbs_cliente | 
@@ -202,7 +200,7 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 ### Asignación de tablespaces para índices
 
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
-|:--:|:--:|:--:|:--:|:|--|--|--|--:|
+|:--:|:--:|:--:|:--:|:--:|
 | cliente_username_uk | unique | cliente | username | tbs_index |
 | cliente_curp_uk | unique | cliente | curp | tbs_index |
 | credencial_cliente_codigo_barras_uk | unique | credencial_cliente |codigo_barras | tbs_index |
