@@ -1,3 +1,6 @@
+
+rman target "sys@gaca_dedicated as sysdba"
+
 run {
     backup incremental to compressed backupset;
     configure backup optimization on;
@@ -5,3 +8,5 @@ run {
     configure controlfile autobackup format for device type disk clear;
     configure channel device type disk format 'ora_df%t_s%s_s%p';
 }
+
+connect target "sys@GACABDA_DEDICATED as sysdba"

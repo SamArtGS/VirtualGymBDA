@@ -1,0 +1,9 @@
+run{
+    advise failure;
+    restore datafile 8;
+    recover datafile 8;
+    sql 'alter database datafile 8 online';
+    restore datafile 9;
+    recover datafile 9;
+    sql 'alter database datafile 8 online';
+}

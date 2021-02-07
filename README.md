@@ -28,6 +28,18 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 - Se requiere capacidad para realizar consultas estadísticas para poder mostrar el avance o progreso de un cliente.
 - Cada gimnasio ha reportado hasta 1500 usuarios registrados durante un año, existen clientes que realizan hasta 5 rutinas por semana con una duración de hasta 2 hrs.
 
+### Análisis de demanda
+
+Considerando que tenemos la cantidad de 1500 personas por los mil gimnasios, damos un promedio con base a la estadística de movimiento urbano que un promedio de 40 personas en aforo promedio, que cuenten con sensor, estarán yendo 2 horas diarias. Esto, multiplicado por los 1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
+
+40\*(1000\*23\*120)/(1024\*\*2) = **105.285 Mb (diarios)**
+
+Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que finalmente tendremos una consulta de 55-56 por segundo.
+
+40000/(12\*60) = **55.5 Mb datos por min aprox.**
+
+
+Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, suponiendo que cada usuario con sensor verifique estos datos una vez que haya terminado su sesión.
 
 ### Modelo lógico
 
@@ -65,16 +77,17 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 ### Módulos del sistema
 
 | Nombre del módulo | Descripción | Usuario |
-|--|--|--|
+|:--:|:--:|:--:|
 | cliente | Agrupa toda la información en forma de objetos de los clientes. | user_cliente |
 | infraestructura | Corresponde a todos los objetos relacionados con la infraestructura del gimnasio, como las salas, disciplinas impartidas y dispositivos para hacer ejercicios | user_infraestructura |
 | empleado | Contiene la información (datos personales, biométricos, puesto y/o rol) de los empleados que trabajan en el gimnasio | user_empleado |
 
 ### Diseño lógico de la Base de Datos 
+
 <center>
 
 | Nombre de la tabla | Nombre del módulo  |
-|--|--|
+|:--:|:--:|
 | cliente | cliente |
 | credencial_cliente| cliente |
 | reporte_fisico | cliente | 
@@ -102,8 +115,9 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 </center>
 
 ### Esquema de Indexado
+
 | Nombre de la tabla | Nombre del indice | Tipo | Propósito |
-|--|--|--|--|
+|:--:|:--:|:--:|:--:|
 | cliente | cliente_username_uk | unique | Validar que no se repitan los nombres de usuario y optimizar las búsquedas |
 | cliente | cliente_curp_uk | unique | Validar que no se repitan las curps de los usuarios |
 | credencial_cliente | credencial_cliente_codigo_barras_uk | unique | Asegurar que no se repitan códigos de barras y generar consultas eficientes |
@@ -126,8 +140,9 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 
 ### Tablespaces 
+
 | Nombre del tablespace | Configuración  |
-|--|--|
+|:--:|:--:|
 | system | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/system01.dbf`, con un tamaño de `700M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. |
 | sysaux | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/sysaux01.dbf`, con un tamaño de `550M` , `reused`, `autoextend` con incrementos de `1M` y de tamaño máximo `unlimited`. |
 | user01 | Tablaspace con un datafile ubicado en `/u01/app/oracle/oradata/GACABDA/disk_4/sysaux01.dbf`, con un tamaño de `500M` , `reused`, `autoextend` con un tamaño máximo `unlimited`. |
@@ -142,7 +157,7 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 
 ### Tablespaces por módulo
 | Nombre del tablespace | Objetivo/Beneficio | Tipo |
-|--|--|--|
+|:--:|:--:|:--:|
 | tbs_cliente | Aislamiento de las tablas relacionadas con los clientes. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
 | tbs_ infraestructura | Aislamiento de las tablas relacionadas con la insfraestructura del gimnasio, como salas, disciplinas y dispositivos. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
 | tbs_empleado | Aislamiento de las tablas relacionadas con los empleados. En caso de una falla de medios, el resto de aplicaciones (tablespaces) siguen funcionando | Usuario |
@@ -153,7 +168,7 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 ### Asignación de tablespaces para tablas
 
 | Nombre de la tabla | Nombre del tablespace |
-|--|--|
+|:--:|:--:|
 | cliente | tbs_cliente |
 | credencial_cliente| tbs_cliente |
 | reporte_fisico | tbs_cliente | 
@@ -179,8 +194,9 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | urls | tbs_empleado |
 
 ### Asignación de tablespaces para índices
+
 | Nombre del índice | Tipo de índice | Nombre de la Tabla | Nombre de la columna | Nombre del tablespace |
-|--|--|--|--|--|
+|:--:|:--:|:--:|:--:|:--:|
 | cliente_username_uk | unique | cliente | username | tbs_index |
 | cliente_curp_uk | unique | cliente | curp | tbs_index |
 | credencial_cliente_codigo_barras_uk | unique | credencial_cliente |codigo_barras | tbs_index |
@@ -202,8 +218,9 @@ Finalmente, el cliente puede consultar el sitio web el avance y el resumen de su
 | reporte_fisico_fecha_registro_ix | index | reporte_fisico | fecha_registro | tbs_index |
 
 ### Asignación de tablespaces para columnas clob/blob
+
 | Nombre de la columna | Nombre del índice asociado a la columna | Nombre de la Tabla | Nombre del tablespace para la columna | Nombre del tablespace para el índice de la columna |
-|--|--|--|--|--|
+|:--:|:--:|:--:|:--:|:--:|
 | imagen_barras | credecial_cliente_imagen_barras_bix | credencial_cliente | tbs_blob | tbs_blob_index |
 | foto | cliente_foto_bix | cliente | tbs_blob | tbs_blob_index |
 | foto | empleado_foto_bix | empleado | tbs_blob | tbs_blob_index |
@@ -232,7 +249,7 @@ Número de redo logs: `3*3=9`
 Tamaño de redo logs: `100M`
 En consideracion con lo anterior, se proponen `40 GB` para la FRA.
 
-### Planeación del esquema de respaldos
+### Planeación del esquema de respaldos y respaldo inicial
 
 Dada la cantidad de registros esperados se propone un backup con las siguientes característicias:
 - Política de retención de respaldos: Redundant based policy, de 4 backup nivel 0.
@@ -242,30 +259,117 @@ Dada la cantidad de registros esperados se propone un backup con las siguientes 
 
 Tamaño total del espacio en disco disponibles: `50 GB`.
 
+#### Scrips configuración inicial
+
+```
+run {
+    backup incremental to compressed backupset;
+    configure backup optimization on;
+    configure retention policy to redundancy 3;
+    configure controlfile autobackup format for device type disk clear;
+    configure channel device type disk format 'ora_df%t_s%s_s%p';
+}
+```
+![](img/img0.png)
+
+### Scripts respaldo incremental con n0 = 7 Febrero (Domingo) y n0 semanal.
+
+```
+run{
+    RECOVER COPY OF DATABASE WITH TAG 'virtual_gym_backup' UNTIL TIME 'SYSDATE-7';
+    BACKUP INCREMENTAL LEVEL 1 FOR RECOVER OF COPY WITH TAG 'virtual_gym_backup' DATABASE;
+    BACKUP DEVICE TYPE DISK TAG 'virtual_gym_backup' ARCHIVELOG ALL NOT BACKED UP DELETE ALL INPUT;
+    DELETE NOPROMPT OBSOLETE DEVICE TYPE DISK;
+}
+```
+
+![](img/img1.png)
+![](img/img3.png)
+
+### Eliminar los backups obsoletos
+![](img/img4.png)
+
+### Incluir archive logs del flash
+![](img/img5.png)
+
 ### Simulación de carga
-| Fecha y Hora | Datos REDO (MB) | Tipo Backup | Espacio requerido |
-|--|:--:|--|--|
-| 05/02/2021 14:00 | 110 | Incremental dif 0 |  |
-| 06/02/2021 14:00 | 110 | Incremental dif 1 |  |
-| 07/02/2021 08:00 | 110 | Incremental dif 0 |  |
 
-### Choro consciente
+La tabla bitácora y sesión son las que más datos generan por lo que son las que se consideran para esta simulación.
 
-Considerando que tenemos la cantidad de 1500 personas por los mil gimnasios, damos un promedio con base a la estadística de movimiento urbano que un promedio de 40 personas en aforo promedio, que cuenten con sensor, estarán yendo 2 horas diarias. Esto, multiplicado por los 1000 gimnasios nos da una cantidad de 4,800,000 registros en la bitácora que se realizarán. Si esto lo multiplicamos por el tamaño de una tupla que es de 23 bytes, y convirtiéndolo a MB, tendremos que diariamente tendremos la siguiente cantidad de datos:
+| Fecha y Hora | Datos REDO (MB) | Tipo Backup | Espacio requerido Gb |
+|:----------------:|:---:|:-----------------:|:----------:|
+| 07/02/2021 08:00 | 867.32 | Incremental dif 0 | 2.0287 |
+| 08/02/2021 14:00 | 901.85 | Incremental dif 1 | 0.9086 |
+| 09/02/2021 14:00 | 946.12 | Incremental dif 1 | 0.9532 |
+| 10/02/2021 14:00 | 981.75 | Incremental dif 1 | 0.9890 |
+| 11/02/2021 14:00 | 858.14 | Incremental dif 1 | 0.8645 |
+| 12/02/2021 14:00 | 504.99 | Incremental dif 1 | 0.5087 |
+| 13/02/2021 14:00 | 765.63 | Incremental dif 1 | 0.7713 |
+| 14/02/2021 08:00 | 840.11 | Incremental dif 0 | 1.9987 |
+| 15/02/2021 14:00 | 933.09 | Incremental dif 1 | 0.9400 |
+| 16/02/2021 14:00 | 952.21 | Incremental dif 1 | 0.9593 |
+| 17/02/2021 14:00 | 976.45 | Incremental dif 1 | 0.9837 |
+| 18/02/2021 14:00 | 870.42 | Incremental dif 1 | 0.8769 |
 
-40\*(1000\*23\*120)/(1024**2) = 105.285 Mb (diarios)
+![](img/tabla1.png)
+![](img/tabla4.png)
+![](img/tabla2.png)
+![](img/tabla5.png)
+![](img/tabla3.png)
 
-Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que finalmente tendremos una consulta de 55-56 por segundo.
+### Simular instance recovery
 
-40000/(12*60) = 55.5 datos por min aprox.
+Se ejecutó @bitacora.sql durante media hora cada lapso, para simular las cargas diarias y se consideró igual los días de la semana que la gente suele ir al gimnasio.
+
+Se obtuvieron los siguientes resultados.
+
+![](img/timer1.png)
+
+Al configurar el parámetro:
+
+```
+
+alter system set fast_start_mttr_target=20 scope=both;
+
+```
+
+![](img/timer2.png)
 
 
-(23\*1500\*60)/1024*\*2\*120
 
+### Proceso de Complete Media Recovery
 
-Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, con 
+Se eliminaron los siguientes datafiles:
 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1NDcyNzYxNywtODE4NjQzMzk3LDgyOT
-kwNDcwOF19
--->
+- Datafile 8: Empleados
+- Datafile 9: Blob
+
+Y se generó error al querer abrir la base. Por tanto se realizó un proceso de recovery a través de RMAN.
+
+```
+run{
+    advise failure;
+    restore datafile 8;
+    recover datafile 8;
+    sql 'alter database datafile 8 online';
+    restore datafile 9;
+    recover datafile 9;
+    sql 'alter database datafile 8 online';
+}
+```
+
+##### Advice - Recomendación
+
+![](img/backup1.png)
+
+#### Restauración datafile 8
+![](img/backup2.png)
+
+#### Restauración datafile 9
+![](img/backup3.png)
+
+#### Online 
+![](img/backup5.png)
+
+# QDEP ✝︎
+
