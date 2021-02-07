@@ -1,7 +1,7 @@
 --@Autores: Jorge Cárdenas Cárdenas
 --          Samuel Arturo Garrido Sánchez
 --@Fecha creación: 03/02/2021
---@Descripción: Creación de objetos
+--@Descripción: Habilitacion de la fra
 
 -- Respaldo del spfile
 create pfile from spfile;

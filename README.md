@@ -56,15 +56,15 @@ Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras,
 | 2 | [s-02-modulos-sistema.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-02-modulos-sistema.sql "s-02-modulos-sistema.sql") | Creación de los tablespaces de cada módulo |
 | 3 | [s-03-crea-usuario-y-rol.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-03-crea-usuario-y-rol.sql "s-03-crea-usuario-y-rol.sql") | Creación de los roles y usuarios de la bd |
 | 4 | [s-04-crea-tablas.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-04-crea-tablas.sql "s-04-crea-tablas.sql") | Creación de los objetos |
-| 5 | [s-06-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-tnsnames.txt "s-0-tnsnames.txt") | Carga inicial de datos |
-| 6 | [s-0-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-tnsnames.txt "s-056-tnsnames.txt") | Configuración del tnsnames |  
-| 7 | [s-0-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-0-habilitar-fra.sql "s-0-habilitar-fra.sql") | Habilitación de la FRA | 
+| 5 | [s-05-carga-inicial.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-05-carga-inicial.sql "s-05-carga-inicial.sql") | Carga inicial de datos |
+| 6 | [s-06-tnsnames.txt](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-06-tnsnames.txt "s-056-tnsnames.txt") | Configuración del tnsnames |  
+| 7 | [s-07-habilitar-fra.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-07-habilitar-fra.sql "s-07-habilitar-fra.sql") | Habilitación de la FRA | 
 | 8 | [s-08-habilitar-modo-archivelog.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-08-habilitar-modo-archivelog.sql "s-08-habilitar-modo-archivelog.sql") | Habilitación del modo Archive log
 | 9 | [s-09-carga-blob.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-carga-blob.sql "s-09-carga-blob.sql") | Función para realizar carga de datos blob
-| 10 | [s-09-rman.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-09-rman.rman "s-09-rman.rman") | Configuración de respaldos |
-| 11 | [s-10-respaldo-inicial.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-10-respaldo-inicial.rman "s-10-respaldo-inicial.rman") | Respaldo inicial de la base datos |
-| 12 | [s-11-simulacion-carga-diaria.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-11-simulacion-carga-diaria.sql "s-11-simulacion-carga-diaria.sql") | Simulación diaria de carga de datos REDO |
-| 13 | [s-12-instance-recovery.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-12-instance-recovery.sql "s-12-instance-recovery.sql") | Instance Recovery |
+| 10 | [s-10-configuraciones-rman.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-10-configuraciones-rman.rman "s-10-configuraciones-rman.rman") | Configuración de respaldos |
+| 11 | [s-11-respaldo-inicial.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-11-respaldo-inicial.rman "s-11-respaldo-inicial.rman") | Respaldo inicial de la base datos |
+| 12 | [s-12-simulacion-carga-diaria.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-12-simulacion-carga-diaria.sql "s-12-simulacion-carga-diaria.sql") | Simulación diaria de carga de datos REDO |
+| 13 | [s-13-instance-recovery.sql](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-13-instance-recovery.sql "s-13-instance-recovery.sql") | Instance Recovery |
 | 14 | [s-14-media-recovery.rman](https://github.com/SamArtGS/VirtualGymBDA/blob/main/ScriptsBDA/s-14-media-recovery.rman "s-14-media-recovery.rman") | Media Recovery |
 
 

@@ -1,3 +1,8 @@
+--@Autores: Jorge Cárdenas Cárdenas
+--          Samuel Arturo Garrido Sánchez
+--@Fecha creación: 03/02/2021
+--@Descripción: Simulación de carga
+
 
 -- Carga diaria 1
 

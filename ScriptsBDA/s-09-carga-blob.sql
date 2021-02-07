@@ -1,7 +1,7 @@
--- Companía:  Scooters Anywhere
--- Project:   Modelo Proyecto Final
--- Author:    Garrido Samuel y Jorge Cárdenas
--- Fecha:     6 de Febrero del 2020
+--@Autores: Jorge Cárdenas Cárdenas
+--          Samuel Arturo Garrido Sánchez
+--@Fecha creación: 03/02/2021
+--@Descripción: Función para convertir datos blob
 
 create or replace function dbst_load_a_file(
   p_file_name in varchar2

@@ -1,3 +1,6 @@
+--@Autors: Garrido Samuel  y Cárdenas Jorge
+--@Fecha: 2 - Feb - 2021
+--@Descricción: Creación de usuarios y roles
 
 declare
   cursor cur_usuarios is

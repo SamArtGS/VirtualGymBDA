@@ -1,3 +1,7 @@
+--@Autors: Garrido Samuel  y Cárdenas Jorge
+--@Fecha: 2 - Feb - 2021
+--@Descricción: Creación de objetos
+
 create sequence user_cliente.seq_bitacora
   start with 1
   increment by 1
