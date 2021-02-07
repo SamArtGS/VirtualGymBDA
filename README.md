@@ -237,11 +237,17 @@ En consideracion con lo anterior, se proponen `40 GB` para la FRA.
 Dada la cantidad de registros esperados se propone un backup con las siguientes característicias:
 - Política de retención de respaldos: Redundant based policy, de 4 backup nivel 0.
 - Implementación de respaldos incrementales diferenciales.
-	- Los respaldos tipo 0 se realizarán los domingos porque todo el mundo esta crudo.
+	- Los respaldos tipo 0 se realizarán los domingos a las 08:00 AM porque todo el mundo esta crudo.
 	- Los resplados tipo 1 se realizarán diario a las 2 de la tarde, porque ¿quién en su sano juicio va al gimnasio a esa hora?
 
 Tamaño total del espacio en disco disponibles: `50 GB`.
 
+### Simulación de carga
+| Fecha y Hora | Datos REDO (MB) | Tipo Backup | Espacio requerido |
+|--|:--:|--|--|
+| 05/02/2021 14:00 | 110 | Incremental dif 0 |  |
+| 06/02/2021 14:00 | 110 | Incremental dif 1 |  |
+| 07/02/2021 08:00 | 110 | Incremental dif 0 |  |
 
 ### Choro consciente
 
@@ -259,7 +265,7 @@ Considerando que el horario del gimnasio sea de 10am a 10 pm, tendremos que fina
 
 Para la consultas, serán de 40,000 consultas diarias de reportes de bitácoras, con 
 
-En el caso de 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgxODY0MzM5Nyw4Mjk5MDQ3MDhdfQ==
+eyJoaXN0b3J5IjpbLTI1NDcyNzYxNywtODE4NjQzMzk3LDgyOT
+kwNDcwOF19
 -->
