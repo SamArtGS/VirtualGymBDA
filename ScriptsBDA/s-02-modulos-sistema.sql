@@ -1,3 +1,6 @@
+--@Autors: Garrido Samuel  y Cárdenas Jorge
+--@Fecha: 2 - Feb - 2021
+--@Descricción: Creación de tablespaces
 
 create tablespace tbs_infraestructura
   datafile '/u01/app/oracle/oradata/GACABDA/disk_5/df_infraestructura_01.dbf' 

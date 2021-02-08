@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# @Autor: Samuel Arturo Garrido Sánchez
-# @Fecha: 23/09/2020
+# @Autor: Jorge Cárdenas Cárdenas
+#         Samuel Arturo Garrido Sánchez
+# @Fecha: 01/02/2021
 # @Descripción: Script ejercicio 2 - BDA
 
 if [ -d /u01/disk1/ ]; then

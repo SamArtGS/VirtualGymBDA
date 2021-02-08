@@ -1,3 +1,8 @@
+--@Autors: Garrido Samuel  y Cárdenas Jorge
+--@Fecha: 2 - Feb - 2021
+--@Descricción: Carga inicial de datos
+
+
 alter session set nls_date_format="yyyy-mm-dd hh24:mi:ss";
 
 insert into user_cliente.cliente (cliente_id, nombre, ap_paterno, ap_materno, email, username, password, direccion, fecha_nacimiento, curp, foto) values (USER_CLIENTE.SEQ_CLIENTE.NEXTVAL, 'Revkah', 'Pavlishchev', 'Dulany', 'rdulany0@sina.com.cn', 'rdulany0', 'a68e8475c0126c12629853e40508cd82a25c616898905ea4a42f8e3c38151c54', '30 Oakridge Avenue', '2020-09-27 01:24:47', 'ZBLM101526XNOXYM22', empty_blob());
