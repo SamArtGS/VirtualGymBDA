@@ -1,9 +1,3 @@
---@Autor(es):       Jorge Rodríguez
---@Fecha creación:  
---@Descripción:     Script validacion proyecto final
---@Autor(es):       Jorge Rodríguez
---@Fecha creación:  
---@Descripción:     Script validacion proyecto final
 set serveroutput on
 declare
     v_num_tablas number(10,0);
@@ -46,7 +40,7 @@ declare
         count(*)user_sequences from user_constraints 
         where constraint_type in('C','P','U','R') group by constraint_type;
     cursor cur_usuarios is select username,created from all_users 
-        where username like '%USER_%';
+        where username like '%USER_%' or username like '%USER_%';
 begin
     --tablas 
     select count(*) into v_num_tablas_temp from user_tables where temporary='Y';
@@ -92,11 +86,9 @@ begin
     open cur_tablas;
     loop 
         fetch cur_tablas into v_nombre_tabla;
-        
         execute immediate 'select count(*) into :ph_num_registros '
             ||' from ' 
             ||v_nombre_tabla into v_num_registros;
-
         exit when cur_tablas%notfound;
         v_num_total_registros:=v_num_registros+v_num_total_registros;
     end loop;
